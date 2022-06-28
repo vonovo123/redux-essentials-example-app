@@ -21,7 +21,7 @@ export const UserPage = ({ match }) => {
       (data, userId) =>
         data?.filter((post) => post.user === userId) ?? emptyArray
     )
-  })
+  }, [])
   const { postsForUser } = useGetPostsQuery(undefined, {
     selectFromResult: (result) => ({
       ...result,
