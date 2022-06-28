@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { selectAllUsers } from '../users/usersSlice'
 import { useAddNewPostMutation } from '../api/apiSlice'
 export const AddPostForm = () => {
-  const [setAddRequestStatus] = useState('idle')
+  const [addRequestStatus, setAddRequestStatus] = useState('idle')
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
@@ -36,6 +36,7 @@ export const AddPostForm = () => {
       } catch (error) {
         console.log(error)
       } finally {
+        console.log(addRequestStatus)
         setAddRequestStatus('idle')
       }
     }
